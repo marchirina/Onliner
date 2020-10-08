@@ -8,8 +8,7 @@ namespace Onliner.TestCases
         [Test]
         public void LogIn()
         {
-            Pages.Home.GoToLoginPage();
-            Pages.Login.LoginToPage();
+            Pages.Main.IsVisibleChatItem();
         }
     }
 }

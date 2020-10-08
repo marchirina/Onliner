@@ -69,6 +69,11 @@ namespace Onliner.WrapperFactory
             Driver.Manage().Window.Maximize();
         }
 
+        public static void GoBackToPage()
+        {
+            Driver.Navigate().Back();
+        }
+
         public static IWebElement WaitForElement(this IWebDriver driver, By by, int timeoutInSeconds = 30)
         {
             var wait = new DefaultWait<IWebDriver>(driver);

@@ -6,10 +6,10 @@ namespace Onliner.TestCases
     public class LikesCount : BaseTest
     {
         [Test]
-        public void TechLikesCount()
+        public void CheckLikesCountForTechNews()
         {
-            Pages.Home.ChoiceLastTechnicalNews();
-            Pages.NewsItem.CheckLikesNumber();
+            Pages.Main.SelectLatestTechnicalNews();
+            Pages.NewsItem.CheckLikesCount();
         }
     }
 }

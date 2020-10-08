@@ -12,7 +12,7 @@ namespace Onliner.PageObjects
             return page;
         }
 
-        public static MainPage Home => GetPage<MainPage>();
+        public static MainPage Main => GetPage<MainPage>();
         public static LogInPage Login => GetPage<LogInPage>();
         public static SearchPage Search => GetPage<SearchPage>();
         public static ItemPage Item => GetPage<ItemPage>();

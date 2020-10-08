@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using NUnit.Framework;
+using Onliner.PageObjects;
 using Onliner.WrapperFactory;
 
 namespace Onliner.TestCases
@@ -15,6 +16,8 @@ namespace Onliner.TestCases
             BrowserFactory.OpenFullScreen();
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
             BrowserFactory.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
+            Pages.Main.GoToLoginPage();
+            Pages.Login.LoginToPage();
         }
 
         [TearDown]

@@ -12,8 +12,7 @@ namespace Onliner.PageObjects
        [FindsBy(How = How.XPath, Using = "//input[@type = 'password']")] [CacheLookup]
        private IWebElement _passwordTextBox;
 
-       [FindsBy(How = How.XPath,
-           Using = "//div[@class='auth-form__control auth-form__control_condensed-additional']/button")]
+       [FindsBy(How = How.XPath, Using = "//div[@class='auth-form']//button[@type='submit']")]
        [CacheLookup]
        private IWebElement _submitButton;
 

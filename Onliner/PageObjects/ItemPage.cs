@@ -5,15 +5,12 @@ namespace Onliner.PageObjects
 {
     public class ItemPage
     {
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'item--highlighted state')]//a[contains(@class,'button_orange')]")] [CacheLookup]
-        private IWebElement _shopChoice;
+        [FindsBy(How = How.XPath, Using = "//div[@class='product-aside__box']/a[contains(@class,'item-button')]")] [CacheLookup]
+        private IWebElement _firstExpandedAddToCartButton;
 
-        public void AddInBasket()
+        public void AddItemInBasketForFirstExpandedShop()
         {
-            if (_shopChoice.Text == "В корзину")
-            {
-                _shopChoice.Click();
-            }
+            _firstExpandedAddToCartButton.Click();
         }
     }
 }

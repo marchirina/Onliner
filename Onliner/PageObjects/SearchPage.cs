@@ -7,23 +7,20 @@ namespace Onliner.PageObjects
    public class SearchPage
    {
        [FindsBy(How = How.XPath, Using = "//input[@class='fast-search__input']")] [CacheLookup]
-       private IWebElement _searchElementTextBox;
+       private IWebElement _searchTextBox;
 
        [FindsBy(How = How.XPath, Using = "//iframe[@class='modal-iframe']")] [CacheLookup]
        private IWebElement _searchFrame;
 
-       [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Ноутбук Apple MacBook Air 13')]")] [CacheLookup]
-       private IWebElement _macElement;
-
-        public void SearchItem(string itemName)
+       public void SearchItem(string itemName)
         {
-            _searchElementTextBox.SendKeys(itemName);
+            _searchTextBox.SendKeys(itemName);
         }
 
-        public void SwitchToItemPage()
+        public void GoToItemPage(string itemName)
         {
             BrowserFactory.Driver.SwitchTo().Frame(_searchFrame);
-            _macElement.Click();
+            BrowserFactory.Driver.FindElement(By.XPath("//a[contains(text(),'" + itemName + "')]")).Click();
             BrowserFactory.Driver.SwitchTo().DefaultContent();
         }
     }
