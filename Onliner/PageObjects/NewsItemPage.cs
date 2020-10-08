@@ -11,10 +11,14 @@ namespace Onliner.PageObjects
        [FindsBy(How = How.XPath, Using = "//div[@data-reaction='slight_smile']//span[@class='st-count']")] [CacheLookup]
        private IWebElement _slightSmileButton;
 
+       [FindsBy(How = How.XPath, Using = "//div[contains(@class,'sharethis')]")]
+       [CacheLookup]
+       private IWebElement _shareThisBlock;
+
         public void CheckLikesCount()
         {
             Actions actions = new Actions(BrowserFactory.Driver);
-            actions.MoveToElement(_slightSmileButton).Build().Perform();
+            actions.MoveToElement(_shareThisBlock).Build().Perform();
             var countLike = _slightSmileButton.Text;
             Console.WriteLine("Number of people who liked news are " + countLike);
         }

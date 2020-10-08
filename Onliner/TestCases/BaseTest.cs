@@ -11,7 +11,6 @@ namespace Onliner.TestCases
         [SetUp]
         public void SetUpTest()
         {
-
             BrowserFactory.InitBrowser("Firefox");
             BrowserFactory.OpenFullScreen();
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);

@@ -49,6 +49,7 @@ namespace Onliner.PageObjects
 
         public void SelectLatestTechnicalNews()
         {
+            BrowserFactory.Driver.WaitForElement(By.XPath(_catalogButtonLocator));
             ((IJavaScriptExecutor)BrowserFactory.Driver).ExecuteScript("arguments[0].scrollIntoView();", _technicalNewsHeader);
             _lastTechNewsElement.Click();
         }
