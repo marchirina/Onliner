@@ -6,10 +6,10 @@ namespace Onliner.PageObjects
 {
    public class SearchPage
    {
-       [FindsBy(How = How.XPath, Using = "//input[@class='fast-search__input']")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//input[@class='fast-search__input']")]
        private IWebElement _searchTextBox;
 
-       [FindsBy(How = How.XPath, Using = "//iframe[@class='modal-iframe']")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//iframe[@class='modal-iframe']")]
        private IWebElement _searchFrame;
 
        public void SearchItem(string itemName)
@@ -17,10 +17,10 @@ namespace Onliner.PageObjects
             _searchTextBox.SendKeys(itemName);
         }
 
-        public void GoToItemPage(string itemName)
+        public void OpenItemPage(string itemName)
         {
             BrowserFactory.Driver.SwitchTo().Frame(_searchFrame);
-            BrowserFactory.Driver.FindElement(By.XPath("//a[contains(text(),'" + itemName + "')]")).Click();
+            BrowserFactory.Driver.FindElement(By.XPath($"//a[contains(text(),'{itemName}')]")).Click();
             BrowserFactory.Driver.SwitchTo().DefaultContent();
         }
     }

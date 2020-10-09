@@ -8,11 +8,10 @@ namespace Onliner.PageObjects
 {
    public class NewsItemPage
    {
-       [FindsBy(How = How.XPath, Using = "//div[@data-reaction='slight_smile']//span[@class='st-count']")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//div[@data-reaction='slight_smile']//span[@class='st-count']")]
        private IWebElement _slightSmileButton;
 
        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'sharethis')]")]
-       [CacheLookup]
        private IWebElement _shareThisBlock;
 
         public void CheckLikesCount()

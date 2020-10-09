@@ -15,7 +15,7 @@ namespace Onliner.TestCases
             BrowserFactory.OpenFullScreen();
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
             BrowserFactory.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
-            Pages.Main.GoToLoginPage();
+            Pages.Main.OpenLoginPage();
             Pages.Login.LoginToPage();
         }
 

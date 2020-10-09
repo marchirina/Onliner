@@ -10,39 +10,37 @@ namespace Onliner.PageObjects
        private const string _catalogButtonLocator = "//a[@class='b-main-navigation__link']/span[contains(text(),'Каталог')]";
        private const string _chatIconLocator = "//div[@id='global-chat-app']";
 
-        [FindsBy(How = How.XPath, Using = "//div[contains(text(),'Вход')]")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//div[contains(text(),'Вход')]")]
        private IWebElement _loginButton;
 
        [FindsBy(How = How.XPath, Using = _catalogButtonLocator)]
-       [CacheLookup]
        private IWebElement _catalogButton;
 
-       [FindsBy(How = How.XPath, Using = "//div[@id='cart-desktop']/a")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//div[@id='cart-desktop']/a")]
        private IWebElement _basketButton;
 
-       [FindsBy(How = How.XPath, Using = "//h2/a[contains(text(),'Технологии')]")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//h2/a[contains(text(),'Технологии')]")]
        private IWebElement _technicalNewsHeader;
 
-       [FindsBy(How = How.XPath, Using = "//div[contains(@class,'main-page-news')][./header//*[contains(text(),'Технологии')]]//div[contains(@class,'main-page-grid')]//li[last()]/div")]
-       [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//div[contains(@class,'main-page-news')][./header//*[contains(text(),'Технологии')]]" +
+                                         "//div[contains(@class,'main-page-grid')]//li[last()]/div")]
        private IWebElement _lastTechNewsElement;
 
        [FindsBy(How = How.XPath, Using = _chatIconLocator)]
-       [CacheLookup]
        private IWebElement _chatIcon;
 
-        public void GoToLoginPage()
+        public void OpenLoginPage()
         {
             _loginButton.Click();
         }
 
-        public void GoToCatalogPage()
+        public void OpenCatalogPage()
         {
             BrowserFactory.Driver.WaitForElement(By.XPath(_catalogButtonLocator));
             _catalogButton.Click();
         }
 
-        public void GoToBasketPage()
+        public void OpenBasketPage()
         {
             _basketButton.Click();
         }
@@ -54,10 +52,15 @@ namespace Onliner.PageObjects
             _lastTechNewsElement.Click();
         }
 
-        public void IsVisibleChatItem()
+        public bool IsChatItemDisplayed()
         {
             BrowserFactory.Driver.WaitForElement(By.XPath(_chatIconLocator));
-            Assert.IsTrue(_chatIcon.Displayed);
+            if (_chatIcon.Displayed)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

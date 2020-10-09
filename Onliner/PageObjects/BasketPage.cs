@@ -9,13 +9,13 @@ namespace Onliner.PageObjects
     {
         private const string _checkoutButtonLocator = "//a[contains(text(),'Оформить заказ')]";
 
-        [FindsBy(How = How.XPath, Using = _checkoutButtonLocator)] [CacheLookup]
+        [FindsBy(How = How.XPath, Using = _checkoutButtonLocator)]
         private IWebElement _checkoutButton;
 
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'part_action')]//a[contains(@class,'button_remove')]")] [CacheLookup]
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'part_remove')]//a[contains(@class,'button_remove')]")]
         private IWebElement _deleteOrderButton;
 
-        public void GoToCheckoutPage()
+        public void OpenCheckoutPage()
         {
             BrowserFactory.Driver.WaitForElement(By.XPath(_checkoutButtonLocator),40);
             Actions actions = new Actions(BrowserFactory.Driver);

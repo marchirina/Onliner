@@ -6,10 +6,10 @@ namespace Onliner.PageObjects
 {
    public class LogInPage
    {
-       [FindsBy(How = How.XPath, Using = "//div[@class='auth-form__field']//input[@type='text']")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//div[@class='auth-form__field']//input[@type='text']")]
        private IWebElement _userNameTextBox;
 
-       [FindsBy(How = How.XPath, Using = "//input[@type = 'password']")] [CacheLookup]
+       [FindsBy(How = How.XPath, Using = "//input[@type = 'password']")]
        private IWebElement _passwordTextBox;
 
        [FindsBy(How = How.XPath, Using = "//div[@class='auth-form']//button[@type='submit']")]

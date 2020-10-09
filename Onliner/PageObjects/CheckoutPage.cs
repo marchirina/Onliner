@@ -10,10 +10,10 @@ namespace Onliner.PageObjects
     {
         private const string _paymentInfoButtonLocator = "//button[contains(text(),'Перейти к способу оплаты')]";
 
-        [FindsBy(How = How.XPath, Using = _paymentInfoButtonLocator)] [CacheLookup]
+        [FindsBy(How = How.XPath, Using = _paymentInfoButtonLocator)]
         private IWebElement _paymentInfoButton;
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Перейти к подтверждению заказа')]")] [CacheLookup]
+        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Перейти к подтверждению заказа')]")]
         private IWebElement _confirmInfoButton;
 
         public void ConfirmOrder()

@@ -2,19 +2,19 @@
 using Onliner.PageObjects;
 using Onliner.WrapperFactory;
 
-namespace Onliner.TestCases
+namespace Onliner.TestCases.Catalog
 {
     public class BuyItems : BaseTest
     {
         [Test]
         public void BuyMacBook()
         {
-            Pages.Main.GoToCatalogPage();
+            Pages.Main.OpenCatalogPage();
             Pages.Search.SearchItem("Apple MacBook Air 13 2020");
-            Pages.Search.GoToItemPage("Ноутбук Apple MacBook Air 13");
+            Pages.Search.OpenItemPage("Ноутбук Apple MacBook Air 13");
             Pages.Item.AddItemInBasketForFirstExpandedShop();
-            Pages.Main.GoToBasketPage();
-            Pages.Basket.GoToCheckoutPage();
+            Pages.Main.OpenBasketPage();
+            Pages.Basket.OpenCheckoutPage();
             Pages.Checkout.ConfirmOrder();
         }
 
