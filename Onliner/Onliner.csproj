@@ -68,18 +68,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageObjects\BasketPage.cs" />
+    <Compile Include="PageObjects\ChatAppPage.cs" />
     <Compile Include="PageObjects\CheckoutPage.cs" />
+    <Compile Include="PageObjects\ComparePage.cs" />
     <Compile Include="PageObjects\MainPage.cs" />
     <Compile Include="PageObjects\ItemPage.cs" />
     <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="PageObjects\NewsItemPage.cs" />
     <Compile Include="PageObjects\Pages.cs" />
+    <Compile Include="PageObjects\ProfilePage.cs" />
     <Compile Include="PageObjects\SearchPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\BaseTest.cs" />
     <Compile Include="TestCases\Catalog\BuyItems.cs" />
     <Compile Include="TestCases\Authorization\SignIn.cs" />
+    <Compile Include="TestCases\Catalog\CompareItems.cs" />
     <Compile Include="TestCases\News\LikesCount.cs" />
+    <Compile Include="TestCases\UserBar\ChatApp.cs" />
+    <Compile Include="TestCases\UserBar\EditProfile.cs" />
     <Compile Include="WrapperFactory\BrowserFactory.cs" />
   </ItemGroup>
   <ItemGroup>

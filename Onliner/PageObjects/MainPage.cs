@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using Onliner.WrapperFactory;
+﻿using Onliner.WrapperFactory;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace Onliner.PageObjects
@@ -9,6 +9,7 @@ namespace Onliner.PageObjects
    {
        private const string _catalogButtonLocator = "//a[@class='b-main-navigation__link']/span[contains(text(),'Каталог')]";
        private const string _chatIconLocator = "//div[@id='global-chat-app']";
+       private const string _profileImageLocator = "//div[contains(@class,'profile__item_arrow')]";
 
        [FindsBy(How = How.XPath, Using = "//div[contains(text(),'Вход')]")]
        private IWebElement _loginButton;
@@ -28,6 +29,15 @@ namespace Onliner.PageObjects
 
        [FindsBy(How = How.XPath, Using = _chatIconLocator)]
        private IWebElement _chatIcon;
+
+       [FindsBy(How = How.XPath, Using = "//div[@class ='chat-offers']")]
+       private IWebElement _chatPersonList;
+
+       [FindsBy(How = How.XPath, Using = _profileImageLocator)]
+        private IWebElement _profileImage;
+
+        [FindsBy(How = How.XPath, Using = "//a[@title = 'Редактировать личные данные']")]
+        private IWebElement _editProfileButton;
 
         public void OpenLoginPage()
         {
@@ -55,12 +65,23 @@ namespace Onliner.PageObjects
         public bool IsChatItemDisplayed()
         {
             BrowserFactory.Driver.WaitForElement(By.XPath(_chatIconLocator));
-            if (_chatIcon.Displayed)
-            {
-                return true;
-            }
+            return _chatIcon.Displayed;
+        }
 
-            return false;
+        public void OpenChatAppPage(string personName)
+        {
+            BrowserFactory.Driver.WaitForElement(By.XPath(_chatIconLocator));
+            _chatIcon.Click();
+            Actions actions = new Actions(BrowserFactory.Driver);
+            actions.MoveToElement(_chatPersonList).Perform();
+            BrowserFactory.Driver.FindElement(By.XPath($"//div[contains(text(),'{personName}')]")).Click();
+        }
+
+        public void OpenEditProfilePage()
+        {
+            BrowserFactory.Driver.WaitForElement(By.XPath(_profileImageLocator));
+            _profileImage.Click();
+            _editProfileButton.Click();
         }
     }
 }
