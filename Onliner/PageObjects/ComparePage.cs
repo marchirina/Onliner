@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Onliner.WrapperFactory;
+﻿using Onliner.WrapperFactory;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 

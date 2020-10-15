@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Onliner.WrapperFactory;
+﻿using Onliner.WrapperFactory;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 

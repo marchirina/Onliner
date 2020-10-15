@@ -1,5 +1,4 @@
-﻿using System;
-using Onliner.WrapperFactory;
+﻿using Onliner.WrapperFactory;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
