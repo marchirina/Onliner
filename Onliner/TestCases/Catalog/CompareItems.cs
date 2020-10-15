@@ -9,10 +9,9 @@ namespace Onliner.TestCases.Catalog
         [Test]
         public void ComparePhones()
         {
-            Pages.Main.OpenCatalogPage();
-            Pages.Search.SearchItem("Iphone 11 64");
-            Pages.Search.SelectCompareItem("Смартфон Apple iPhone 11 Pro 64");
-            Pages.Search.SelectCompareItem("Смартфон Apple iPhone 11 64");
+            Pages.Main.SearchItem("Iphone 11 64");
+            Pages.Search.SelectComparisonItem("Смартфон Apple iPhone 11 Pro 64GB (серый космос)");
+            Pages.Search.SelectComparisonItem("Смартфон Apple iPhone 11 64GB (фиолетовый)");
             Pages.Search.OpenComparePage();
             Assert.IsTrue(Pages.Compare.IsFirstPhoneBetter());
         }

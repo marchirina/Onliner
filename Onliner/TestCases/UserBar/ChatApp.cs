@@ -10,8 +10,7 @@ namespace Onliner.TestCases.UserBar
         {
             Pages.Main.OpenChatAppPage("Aleksey_cosmos");
             Pages.Chat.SendMessage("What's up?");
-            Assert.AreEqual("What's up?", Pages.Chat.CompareTxtMessage());
-            Assert.IsTrue(Pages.Chat.IsStatusMessageSentDisplayed());
+            Assert.IsTrue(Pages.Chat.IsStatusMessageSentDisplayed("What's up?"));
         }
 
         [TearDown]

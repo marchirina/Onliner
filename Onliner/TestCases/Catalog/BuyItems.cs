@@ -9,8 +9,7 @@ namespace Onliner.TestCases.Catalog
         [Test]
         public void BuyMacBook()
         {
-            Pages.Main.OpenCatalogPage();
-            Pages.Search.SearchItem("Apple MacBook Air 13 2020");
+            Pages.Main.SearchItem("Apple MacBook Air 13 2020");
             Pages.Search.OpenItemPage("Ноутбук Apple MacBook Air 13");
             Pages.Item.AddItemInBasketForFirstExpandedShop();
             Pages.Main.OpenBasketPage();

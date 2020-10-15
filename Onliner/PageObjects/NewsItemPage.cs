@@ -14,12 +14,12 @@ namespace Onliner.PageObjects
        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'sharethis')]")]
        private IWebElement _shareThisBlock;
 
-        public void CheckLikesCount()
-        {
-            Actions actions = new Actions(BrowserFactory.Driver);
-            actions.MoveToElement(_shareThisBlock).Build().Perform();
-            var countLike = _slightSmileButton.Text;
-            Console.WriteLine("Number of people who liked news are " + countLike);
-        }
+       public void CheckLikesCount()
+       {
+           Actions actions = new Actions(BrowserFactory.Driver);
+           actions.MoveToElement(_shareThisBlock).Build().Perform();
+           var countLike = _slightSmileButton.Text;
+           Console.WriteLine("Number of people who liked news are " + countLike);
+       }
     }
 }

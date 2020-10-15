@@ -14,13 +14,13 @@ namespace Onliner.PageObjects
 
         public static MainPage Main => GetPage<MainPage>();
         public static LogInPage Login => GetPage<LogInPage>();
-        public static SearchPage Search => GetPage<SearchPage>();
+        public static SearchPopup Search => GetPage<SearchPopup>();
         public static ItemPage Item => GetPage<ItemPage>();
         public static BasketPage Basket => GetPage<BasketPage>();
         public static CheckoutPage Checkout => GetPage<CheckoutPage>();
         public static NewsItemPage NewsItem => GetPage<NewsItemPage>();
         public static ComparePage Compare => GetPage<ComparePage>();
-        public static ChatAppPage Chat => GetPage<ChatAppPage>();
+        public static ChatPage Chat => GetPage<ChatPage>();
         public static ProfilePage Profile => GetPage<ProfilePage>();
     }
 }

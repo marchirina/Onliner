@@ -8,9 +8,9 @@ namespace Onliner.PageObjects
 {
     public class CheckoutPage
     {
-        private const string _paymentInfoButtonLocator = "//button[contains(text(),'Перейти к способу оплаты')]";
+        private const string PaymentInfoButtonLocator = "//button[contains(text(),'Перейти к способу оплаты')]";
 
-        [FindsBy(How = How.XPath, Using = _paymentInfoButtonLocator)]
+        [FindsBy(How = How.XPath, Using = PaymentInfoButtonLocator)]
         private IWebElement _paymentInfoButton;
 
         [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Перейти к подтверждению заказа')]")]
@@ -18,7 +18,7 @@ namespace Onliner.PageObjects
 
         public void ConfirmOrder()
         {
-            BrowserFactory.Driver.WaitForElement(By.XPath(_paymentInfoButtonLocator),40);
+            BrowserFactory.Driver.WaitForElement(By.XPath(PaymentInfoButtonLocator),40);
             Actions actions = new Actions(BrowserFactory.Driver);
             actions.MoveToElement(_paymentInfoButton).Click().Perform();
             _confirmInfoButton.Click();

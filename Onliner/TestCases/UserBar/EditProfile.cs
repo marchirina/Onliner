@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Configuration;
+using NUnit.Framework;
 using Onliner.PageObjects;
 
 namespace Onliner.TestCases.UserBar
@@ -6,17 +7,17 @@ namespace Onliner.TestCases.UserBar
     public class EditProfile : BaseTest
     {
         [Test]
-        public void SelectAgreementToParticipate()
+        public void CheckUserProfile()
         {
             Pages.Main.OpenEditProfilePage();
             Pages.Profile.SelectAgreementForParticipation();
-            Assert.IsTrue(Pages.Profile.IsCheckboxAgreementSelected());
-            Assert.AreEqual("LeoDiCaprio", Pages.Profile.IsNickNameCoincide());
-            Assert.AreEqual("DiCaprio Leonardo", Pages.Profile.IsNameCoincide());
-            Assert.AreEqual("Los Angeles", Pages.Profile.IsCityCoincide());
-            Assert.AreEqual("Actor", Pages.Profile.IsOccupationCoincide());
-            Assert.AreEqual("+375 29 818 83 98", Pages.Profile.IsPhoneCoincide());
-            Assert.AreEqual("marchenko_i@lwo.by", Pages.Profile.IsEmailCoincide());
+            Assert.IsTrue(Pages.Profile.IsAgreementCheckboxSelected());
+            Assert.AreEqual(ConfigurationManager.AppSettings["NICK"], Pages.Profile.GetNickNameTextCoincide());
+            Assert.AreEqual(ConfigurationManager.AppSettings["NAME"], Pages.Profile.GetNameTextCoincide());
+            Assert.AreEqual(ConfigurationManager.AppSettings["CITY"], Pages.Profile.GetCityTextCoincide());
+            Assert.AreEqual(ConfigurationManager.AppSettings["OCCUPATION"], Pages.Profile.GetOccupationTextCoincide());
+            Assert.AreEqual(ConfigurationManager.AppSettings["PHONE"], Pages.Profile.GetPhoneTextCoincide());
+            Assert.AreEqual(ConfigurationManager.AppSettings["EMAIL"], Pages.Profile.GetEmailTextCoincide());
         }
 
         [TearDown]

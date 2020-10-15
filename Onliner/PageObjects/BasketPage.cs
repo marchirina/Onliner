@@ -7,9 +7,9 @@ namespace Onliner.PageObjects
 {
     public class BasketPage
     {
-        private const string _checkoutButtonLocator = "//a[contains(text(),'Оформить заказ')]";
+        private const string CheckoutButtonLocator = "//a[contains(text(),'Оформить заказ')]";
 
-        [FindsBy(How = How.XPath, Using = _checkoutButtonLocator)]
+        [FindsBy(How = How.XPath, Using = CheckoutButtonLocator)]
         private IWebElement _checkoutButton;
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'part_remove')]//a[contains(@class,'button_remove')]")]
@@ -17,7 +17,7 @@ namespace Onliner.PageObjects
 
         public void OpenCheckoutPage()
         {
-            BrowserFactory.Driver.WaitForElement(By.XPath(_checkoutButtonLocator),40);
+            BrowserFactory.Driver.WaitForElement(By.XPath(CheckoutButtonLocator),40);
             Actions actions = new Actions(BrowserFactory.Driver);
             actions.MoveToElement(_checkoutButton).Click().Perform();
         }

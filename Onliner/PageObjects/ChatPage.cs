@@ -5,14 +5,14 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace Onliner.PageObjects
 {
-    public class ChatAppPage
+    public class ChatPage
     {
-        private const string _sendMessageButtonLocator = "//div[contains(@class,'trigger_send')]";
+        private const string SendMessageButtonLocator = "//div[contains(@class,'trigger_send')]";
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'js-message-input')]")]
         private IWebElement _messageTextBox;
 
-        [FindsBy(How = How.XPath, Using = _sendMessageButtonLocator)]
+        [FindsBy(How = How.XPath, Using = SendMessageButtonLocator)]
         private IWebElement _sendMessageButton;
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'chat-offers__item_primary')]//div[contains(@class,'js-message-content')]")]
@@ -21,37 +21,32 @@ namespace Onliner.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'details-item')]/div[contains(@class,'status_sent')]")]
         private IWebElement _chatMessageStatus;
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Удалить (1)')]")]
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'operation-item')][.//a[contains(text(),'Удалить')]]")]
         private IWebElement _deleteMessageButton;
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Удалить у всех')]")]
         private IWebElement _deleteFromAllButton;
 
-        public void SendMessage(string txtMessage)
+        public void SendMessage(string textMessage)
         {
-            _messageTextBox.SendKeys(txtMessage);
-            BrowserFactory.Driver.WaitForElement(By.XPath(_sendMessageButtonLocator));
+            _messageTextBox.SendKeys(textMessage);
+            BrowserFactory.Driver.WaitForElement(By.XPath(SendMessageButtonLocator));
             Actions actions = new Actions(BrowserFactory.Driver);
             actions.MoveToElement(_sendMessageButton).Click().Perform();
         }
 
-        public string CompareTxtMessage()
-        {
-            return _chatMessageBox.Text;
-        }
-
-        public bool IsStatusMessageSentDisplayed()
-        {
-            return _chatMessageStatus.Displayed;
-        }
+        public bool IsStatusMessageSentDisplayed(string textMessage) =>
+            BrowserFactory.Driver.FindElement(By.XPath($"//div[contains(@class,'bubble_primary')][.//div[text()=\"{textMessage}\"]]" +
+                                                        "//div[contains(@class,'status_sent')]")).Displayed;
 
         public void DeleteChatMessage()
         {
-            if (!_chatMessageStatus.Displayed) return;
-            _chatMessageBox.Click();
-            _deleteMessageButton.Click();
-            _deleteFromAllButton.Click();
+            if (_chatMessageStatus.Displayed)
+            {
+                _chatMessageBox.Click();
+                _deleteMessageButton.Click();
+                _deleteFromAllButton.Click();
+            }
         }
-
     }
 }
