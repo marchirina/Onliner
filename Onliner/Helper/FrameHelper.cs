@@ -5,7 +5,7 @@ namespace Onliner.Helper
 {
     public static class FrameHelper
     {
-        public static void SwitchToPopup(IWebElement element, By by)
+        public static void SwitchToPopupAndClick(IWebElement element, By by)
         {
             BrowserFactory.Driver.SwitchTo().Frame(element);
             BrowserFactory.Driver.FindElement(by).Click();

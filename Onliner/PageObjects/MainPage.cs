@@ -40,6 +40,7 @@ namespace Onliner.PageObjects
        {
            BrowserFactory.Driver.WaitForElement(By.XPath(SearchTextBoxLocator));
            _searchTextBox.SendKeys(itemName);
+
            return new SearchPopup();
        }
 
@@ -58,6 +59,7 @@ namespace Onliner.PageObjects
        public bool IsChatItemDisplayed()
        {
            BrowserFactory.Driver.WaitForElement(By.XPath(ChatIconLocator));
+
            return _chatIcon.Displayed;
        }
 

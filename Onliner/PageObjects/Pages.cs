@@ -9,6 +9,7 @@ namespace Onliner.PageObjects
         {
             var page = new T();
             PageFactory.InitElements(BrowserFactory.Driver, page);
+
             return page;
         }
 

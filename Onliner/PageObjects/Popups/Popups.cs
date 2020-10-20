@@ -9,6 +9,7 @@ namespace Onliner.PageObjects.Popups
         {
             var page = new T();
             PageFactory.InitElements(BrowserFactory.Driver, page);
+
             return page;
         }
 
