@@ -4,12 +4,13 @@
 		"url": "https://web.demo.reportportal.io/api/v1/",
 		"project": "MARCHIRINA_PERSONAL",
 		"authentication": {
-			"uuid": "676a8d5f-38ea-4369-a58f-b87f8b343e51"
+			"uuid": "42732a19-b75e-40ba-8c75-41c80e882512"
 		},
 		"launch": {
-		"name": "NUnit 3 Demo Launch",
-		"description": "this is description",
-		"debugMode": true,
-		"attributes": [ "t1", "t2", "platform:x64" ]
+			"name": "NUnit 3 Demo Launch",
+			"description": "this is description",
+			"debugMode": true,
+			"attributes": ["t1", "t2", "platform:x64"]
+		}
 	}
 }

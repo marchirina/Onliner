@@ -11,7 +11,7 @@ namespace Onliner.TestCases
         [SetUp]
         public void SetUpTest()
         {
-            BrowserFactory.InitBrowser("Firefox");
+            BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.OpenFullScreen();
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
             BrowserFactory.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);

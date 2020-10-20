@@ -12,12 +12,12 @@ namespace Onliner.TestCases.UserBar
             Pages.Main.OpenEditProfilePage();
             Pages.Profile.SelectAgreementForParticipation();
             Assert.IsTrue(Pages.Profile.IsAgreementCheckboxSelected());
-            Assert.AreEqual(ConfigurationManager.AppSettings["NICK"], Pages.Profile.GetNickNameTextCoincide());
-            Assert.AreEqual(ConfigurationManager.AppSettings["NAME"], Pages.Profile.GetNameTextCoincide());
-            Assert.AreEqual(ConfigurationManager.AppSettings["CITY"], Pages.Profile.GetCityTextCoincide());
-            Assert.AreEqual(ConfigurationManager.AppSettings["OCCUPATION"], Pages.Profile.GetOccupationTextCoincide());
-            Assert.AreEqual(ConfigurationManager.AppSettings["PHONE"], Pages.Profile.GetPhoneTextCoincide());
-            Assert.AreEqual(ConfigurationManager.AppSettings["EMAIL"], Pages.Profile.GetEmailTextCoincide());
+            Assert.AreEqual(ConfigurationManager.AppSettings["NICK"], Pages.Profile.GetNickNameText());
+            Assert.AreEqual(ConfigurationManager.AppSettings["NAME"], Pages.Profile.GetNameText());
+            Assert.AreEqual(ConfigurationManager.AppSettings["CITY"], Pages.Profile.GetCityText());
+            Assert.AreEqual(ConfigurationManager.AppSettings["OCCUPATION"], Pages.Profile.GetOccupationText());
+            Assert.AreEqual(ConfigurationManager.AppSettings["PHONE"], Pages.Profile.GetPhoneText());
+            Assert.AreEqual(ConfigurationManager.AppSettings["EMAIL"], Pages.Profile.GetEmailText());
         }
 
         [TearDown]

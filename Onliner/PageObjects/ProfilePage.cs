@@ -40,11 +40,17 @@ namespace Onliner.PageObjects
         }
 
         public bool IsAgreementCheckboxSelected() => _checkAgreementForParticipationCheckbox.Selected;
-        public string GetNickNameTextCoincide() => _profileNickNameTextBox.Text;
-        public string GetNameTextCoincide() => _profileNameTextBox.Text;
-        public string GetCityTextCoincide() => _profileCityTextBox.Text;
-        public string GetOccupationTextCoincide() => _profileOccupationTextBox.Text;
-        public string GetPhoneTextCoincide() => _profilePhoneTextBox.Text;
-        public string GetEmailTextCoincide() => _profileEmailTextBox.Text;
+
+        public string GetNickNameText() => _profileNickNameTextBox.Text;
+
+        public string GetNameText() => _profileNameTextBox.Text;
+
+        public string GetCityText() => _profileCityTextBox.Text;
+
+        public string GetOccupationText() => _profileOccupationTextBox.Text;
+
+        public string GetPhoneText() => _profilePhoneTextBox.Text;
+
+        public string GetEmailText() => _profileEmailTextBox.Text;
     }
 }

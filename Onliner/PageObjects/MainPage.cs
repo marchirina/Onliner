@@ -1,7 +1,7 @@
 ﻿using Onliner.WrapperFactory;
 using Onliner.Helper;
+using Onliner.PageObjects.Popups;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace Onliner.PageObjects
@@ -27,9 +27,6 @@ namespace Onliner.PageObjects
 
        [FindsBy(How = How.XPath, Using = ChatIconLocator)]
        private IWebElement _chatIcon;
-
-       [FindsBy(How = How.XPath, Using = "//div[@class ='chat-offers']")]
-       private IWebElement _chatPersonList;
 
        [FindsBy(How = How.XPath, Using = "//a[@class = 'b-top-profile__settings']")]
         private IWebElement _editProfileButton;
@@ -67,8 +64,6 @@ namespace Onliner.PageObjects
        public void OpenChatAppPage(string personName)
        {
            WebDriverHelper.WaitAndClick(By.XPath(ChatIconLocator));
-           Actions actions = new Actions(BrowserFactory.Driver);
-           actions.MoveToElement(_chatPersonList).Perform();
            BrowserFactory.Driver.FindElement(By.XPath($"//div[contains(text(),'{personName}')]")).Click();
        }
 

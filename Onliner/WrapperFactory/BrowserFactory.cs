@@ -51,7 +51,7 @@ namespace Onliner.WrapperFactory
                 case "Chrome":
                     if (driver == null)
                     {
-                        driver = new ChromeDriver(@"C:\PathTo\CHDriverServer");
+                        driver = new ChromeDriver();
                         Drivers.Add("Chrome", Driver);
                     }
 
@@ -72,15 +72,6 @@ namespace Onliner.WrapperFactory
         public static void GoBackToPage()
         {
             Driver.Navigate().Back();
-        }
-
-        public static IWebElement WaitForElement(this IWebDriver driver, By by, int timeoutInSeconds = 30)
-        {
-            var wait = new DefaultWait<IWebDriver>(driver);
-            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException), typeof(NoSuchElementException));
-            wait.Timeout = TimeSpan.FromSeconds(timeoutInSeconds);
-            wait.Until(d => d.FindElement(by).Displayed && d.FindElement(by).Enabled);
-            return driver.FindElement(by);
         }
 
         public static void CloseAllDrivers()

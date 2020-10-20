@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Onliner.PageObjects;
+using Onliner.PageObjects.Popups;
 using Onliner.WrapperFactory;
 
 namespace Onliner.TestCases.Catalog
@@ -10,7 +11,7 @@ namespace Onliner.TestCases.Catalog
         public void BuyMacBook()
         {
             Pages.Main.SearchItem("Apple MacBook Air 13 2020");
-            Pages.Search.OpenItemPage("Ноутбук Apple MacBook Air 13");
+            Popups.Search.OpenItemPage("Ноутбук Apple MacBook Air 13");
             Pages.Item.AddItemInBasketForFirstExpandedShop();
             Pages.Main.OpenBasketPage();
             Pages.Basket.OpenCheckoutPage();

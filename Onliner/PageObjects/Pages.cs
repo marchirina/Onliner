@@ -14,7 +14,6 @@ namespace Onliner.PageObjects
 
         public static MainPage Main => GetPage<MainPage>();
         public static LogInPage Login => GetPage<LogInPage>();
-        public static SearchPopup Search => GetPage<SearchPopup>();
         public static ItemPage Item => GetPage<ItemPage>();
         public static BasketPage Basket => GetPage<BasketPage>();
         public static CheckoutPage Checkout => GetPage<CheckoutPage>();
