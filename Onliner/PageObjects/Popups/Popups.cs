@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace Onliner.PageObjects.Popups
 {
-    class Popups
+    public class Popups
     {
         private static T GetPage<T>() where T : new()
         {
