@@ -11,13 +11,11 @@ namespace Onliner.PageObjects
    {
        private const string CatalogButtonLocator = "//a[@class='b-main-navigation__link']/span[contains(text(),'Каталог')]";
        private const string ChatIconLocator = "//div[@id='global-chat-app']";
-       private const string SearchTextBoxLocator = "//input[@class='fast-search__input']";
+
+       private IWebElement SearchTextBox => BrowserFactory.Driver.WaitForElement(By.XPath("//input[@class='fast-search__input']"));
 
        [FindsBy(How = How.XPath, Using = "//div[contains(text(),'Вход')]")]
        private IWebElement _loginButton;
-
-       [FindsBy(How = How.XPath, Using = SearchTextBoxLocator)]
-       private IWebElement _searchTextBox;
 
        [FindsBy(How = How.XPath, Using = "//div[@id='cart-desktop']/a")]
        private IWebElement _basketButton;
@@ -39,8 +37,7 @@ namespace Onliner.PageObjects
 
        public SearchPopup SearchItem(string itemName)
        {
-           BrowserFactory.Driver.WaitForElement(By.XPath(SearchTextBoxLocator));
-           _searchTextBox.SendKeys(itemName);
+           SearchTextBox.SendKeys(itemName);
 
            return new SearchPopup();
        }
