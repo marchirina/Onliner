@@ -4,7 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Support.UI;
 
 
 namespace Onliner.WrapperFactory
@@ -81,6 +80,8 @@ namespace Onliner.WrapperFactory
                 Drivers[key].Close();
                 Drivers[key].Quit();
             }
+            Drivers.Clear();
+            driver = null;
         }
     }
 }

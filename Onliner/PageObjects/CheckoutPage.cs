@@ -1,4 +1,4 @@
-﻿using Onliner.Helper;
+﻿using Onliner.Extensions;
 using Onliner.WrapperFactory;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;

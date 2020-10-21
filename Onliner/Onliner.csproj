@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\WebDriverExtension.cs" />
     <Compile Include="Helper\FrameHelper.cs" />
     <Compile Include="Helper\JavaScriptHelper.cs" />
     <Compile Include="Helper\WebDriverHelper.cs" />

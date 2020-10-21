@@ -1,4 +1,5 @@
-﻿using Onliner.WrapperFactory;
+﻿using Onliner.Extensions;
+using Onliner.WrapperFactory;
 using Onliner.Helper;
 using Onliner.PageObjects.Popups;
 using OpenQA.Selenium;
